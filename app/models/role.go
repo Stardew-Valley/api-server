@@ -303,9 +303,8 @@ func SetupRoles() {
 		os.Exit(1)
 	}
 
-	//err = Role{}.CleanAllCache()
-	//if err != nil {
-	//	log.TracedError("CleanAllCache failed", errors.WithStack(err))
-	//	os.Exit(1)
-	//}
+	err = Role{}.CleanAllCache()
+	if err != nil {
+		log.TracedError("CleanAllCache failed", errors.WithStack(err))
+	}
 }

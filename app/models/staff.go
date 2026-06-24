@@ -145,7 +145,7 @@ func (s *Staff) Query(staff Staff, extCorpID string, sorter *app.Sorter, pager *
 		db = db.Where("name like ?", staff.Name+"%")
 	}
 
-	if len(staff.DeptIds) > 0 {
+	if len(staff.DeptIds) > 0 && !(len(staff.DeptIds) == 1 && staff.DeptIds[0] == 0) {
 		db = db.Where("json_contains(dept_ids, (?) )", staff.DeptIds)
 	}
 

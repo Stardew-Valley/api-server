@@ -284,12 +284,12 @@ func NewRouter() *gin.Engine {
 		staffAdminApiV1.POST("/customer/mass-msg", m.Guard(c.BizMassMsg, c.Full), massMsgHandler.Create)
 		staffAdminApiV1.POST("/customer/mass-msg/action/delete", m.Guard(c.BizMassMsg, c.Full), massMsgHandler.Delete)
 		staffAdminApiV1.GET("/customer/mass-msg/:id", m.Guard(c.BizMassMsg, c.Read), massMsgHandler.Get)
-		staffAdminApiV1.PUT("/customer/mass-msg/:id", m.Guard(c.BizQuickReply, c.Full), massMsgHandler.Update)
+		staffAdminApiV1.PUT("/customer/mass-msg/:id", m.Guard(c.BizMassMsg, c.Full), massMsgHandler.Update)
 		staffAdminApiV1.GET("/customer/mass-msgs", m.Guard(c.BizMassMsg, c.Read), massMsgHandler.Query)
 		staffAdminApiV1.POST("/customer/mass-msg/action/notify", m.Guard(c.BizMassMsg, c.Full), massMsgHandler.Notify)
 		staffAdminApiV1.GET("/customer/mass-msg/result/:id", m.Guard(c.BizMassMsg, c.Read), massMsgHandler.GetSendMassMsgResult)
 		staffAdminApiV1.GET("/customer/mass-msg/customer-filter", m.Guard(c.BizMassMsg, c.Read), massMsgHandler.CustomerFilter)
-		staffAdminApiV1.POST("/customer/mass-msg/action/get-upload-url", m.Guard(c.BizQuickReply, c.Full), massMsgHandler.GetUploadUrl)
+		staffAdminApiV1.POST("/customer/mass-msg/action/get-upload-url", m.Guard(c.BizMassMsg, c.Full), massMsgHandler.GetUploadUrl)
 
 		//// 客户群-群发
 		groupChatMassMsgHandler := controller.NewDefaultGroupChatMassMsg()
